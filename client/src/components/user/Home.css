@@ -1,0 +1,35 @@
+.home{
+    background-image: url("https://images.herzindagi.info/image/2023/Dec/diy-gifts-for-christmas.jpg");
+    background-size: cover;
+    height: 20rem;
+    color: rgb(255, 255, 255);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
+    /* display: flex;
+    justify-content: center; */
+    
+  
+}
+p{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  padding-inline: 10rem;
+  font-size: large;
+}
+
+h1{
+    /* margin-top: 10rem; */
+    font-size: 4rem;
+    
+   } 
+   
+    .image:hover{
+      transform: scale(1.1);
+      transition: transform 0.5s;
+      color:blueviolet;
+    }
+   .logo:hover{
+      transform: scale(1.1);
+      transition: transform 0.5s;
+   }
+   
