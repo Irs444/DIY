@@ -112,4 +112,17 @@ router.get("/getbylocation/:location",(req,res)=>{
     });
 });
 
+router.get("/getbycategory/:category",(req,res)=>{
+
+    Model.find({category: req.params.category})
+
+    .then((result)=>{
+        res.json(result);
+
+    }).catch((err)=>{
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 module.exports = router;

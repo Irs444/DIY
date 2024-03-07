@@ -6,6 +6,7 @@ const port = 5000;
 
 const UserRouter = require("./routers/userRouter")
 const ProductRouter = require("./routers/productRouter")
+const UtilRouter = require("./routers/util")
 
 
 
@@ -16,6 +17,9 @@ app.use(cors({
 
 app.use("/user", UserRouter);
 app.use("/product", ProductRouter);
+app.use("/util", UtilRouter);
+
+app.use(express.static('./static/uploads'));
 
 
 

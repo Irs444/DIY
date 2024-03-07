@@ -1,8 +1,38 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import useUserContext from '../../context/UserContext';
 
 
 const Navbar = () => {
+
+  const { loggedIn, logout } = useUserContext();
+  console.log(loggedIn);
+  const showLoggedin = () => {
+    if (loggedIn) {
+      return (
+        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li className="nav-item">
+            <button className="btn btn-danger" onClick={logout}>
+              Logout
+            </button>
+          </li>
+        </ul>
+      );
+    } else {
+      return <div className="hidden sm:ml-6 sm:block">
+        <div className="flex space-x-4">
+          <NavLink type="button" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium" to="/user/signup">
+            Signup
+          </NavLink>
+
+          <NavLink role='button' className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" to="/user/login" >
+            Login
+          </NavLink>
+
+        </div>
+      </div>
+    }
+  };
 
   return (
     <div>
@@ -20,7 +50,7 @@ const Navbar = () => {
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open main menu</span>
                 {/*
-      Icon when menu is closed.
+         Icon when menu is closed.
 
       Menu open: "hidden", Menu closed: "block"
     */}
@@ -78,23 +108,24 @@ const Navbar = () => {
                   >
                     Home
                   </Link>
-                  <Link
+                  {/* <Link
                     href=""
                     to={"/user/signup"}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     Signup
-                  </Link>
-                  <Link
+                  </Link> */}
+                  {/* <Link
                     href=""
                     to={"/user/login"}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     Login
-                  </Link>
+                  </Link> */}
 
                 </div>
               </div>
+              {showLoggedin()}
             </div>
             {/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
         <button
