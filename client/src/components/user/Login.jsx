@@ -49,7 +49,7 @@ const Login = () => {
       if (res.status === 200) {
         enqueueSnackbar('Loggedin Successfully', { variant: 'success' });
         setLoggedIn(true);
-        navigate('/');
+        navigate('/user/product');
 
         const data = await res.json();
         console.log(data);

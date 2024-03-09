@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import useUserContext from '../../context/UserContext';
+import useProductContext from '../../context/ProductContext';
 
 
 const Navbar = () => {
+
+  const { getCartItemsCount } = useProductContext();
 
   const { loggedIn, logout } = useUserContext();
   console.log(loggedIn);
@@ -28,6 +31,14 @@ const Navbar = () => {
           <NavLink role='button' className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" to="/user/login" >
             Login
           </NavLink>
+          <Link
+                  className="text-reset me-3 dropdown-toggle hidden-arrow"
+                  to="/user/cart"
+                  aria-expanded="false"
+                >
+                  <i className="bi bi-cart px-1  "></i>
+                  <span className="badge  badge-notification ">{getCartItemsCount()}</span>
+                </Link>
 
         </div>
       </div>
@@ -108,6 +119,8 @@ const Navbar = () => {
                   >
                     Home
                   </Link>
+                  
+               
                   {/* <Link
                     href=""
                     to={"/user/signup"}
