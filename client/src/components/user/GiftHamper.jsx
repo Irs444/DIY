@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const GiftHamper = () => {
   const { category } = useParams();
@@ -52,12 +52,13 @@ const displayCategoryData = () => {
                 <div className='container'>
                     <div className='row'>
                         <div className='col-md-12'>
-                            <h1 className='text-center fw-bold fs-1 text-primary'>Gift Hamper</h1>
+                            <h1 className='text-center fw-bold fs-1'style={{color:"teal", fontFamily:"initial"}}>Gift Hamper</h1>
                         </div>
                     </div>
                 </div>
             </header>
             <div className='container mb-5 vh-100'>
+            <Link to={"/user/home"} className='btn btn-outline-warning rounded-pill px-2'><i className=" px-2 bi bi-arrow-left-circle"></i>Go Home</Link>
                 <div className="row">
                     {displayCategoryData()}
                 </div>

@@ -72,13 +72,13 @@ const Home = () => {
 
 
     return (
-        <div className="">
+        <div className="mt-2">
 
             <section className="mb-5">
             <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-        <SwiperSlide className="slide1"><div className="kit">Kit Section</div></SwiperSlide>
-        <SwiperSlide className="slide2"><div className="kit1">Valentine Section</div></SwiperSlide>
-        <SwiperSlide className="slide3"></SwiperSlide>
+        <SwiperSlide className="slide1"><div className="kit" style={{color:"teal", fontFamily:"initial"}}>Kit Section</div></SwiperSlide>
+        <SwiperSlide className="slide2"><div className="kit1" style={{color:"teal", fontFamily:"initial"}}>Valentine Section</div></SwiperSlide>
+        {/* <SwiperSlide className="slide3"></SwiperSlide> */}
        
       </Swiper>
 
@@ -108,7 +108,7 @@ const Home = () => {
                                     <h1>Decoration</h1>
                                 </div>
                                 <div className="text-center">
-                                    <Link to={"/user/getdecoration/decoration"} className="btn btn-danger px-5">View</Link>
+                                    <Link to={"/user/getdecoration/Decoration"} className="btn btn-danger px-5">View</Link>
                                 </div>
                               </div>
                             </div>
@@ -235,17 +235,16 @@ const Home = () => {
     <div className="mx-auto max-w-screen-md py-12 px-4 sm:px-6 md:max-w-screen-xl md:py-20 lg:py-32 md:px-8">
       <div className="md:pe-8 md:w-1/2 xl:pe-0 xl:w-5/12">
         {/* Title */}
-        <h1 className="text-3xl text-gray-800 font-bold md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight dark:text-gray-200">
+        <h1 style={{color:"CaptionText", fontFamily:"initial"}} className="text-3xl text-gray-800 font-bold md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight dark:text-gray-200">
           Solving problems for every{" "}
-          <span className="text-blue-600 dark:text-blue-500">team</span>
+          <span className="text-blue-600 dark:text-blue-500">DIY</span>
         </h1>
-        <p className="mt-3 text-base text-gray-500">
-          Built on standard web technology, teams use Preline to build beautiful
-          cross-platform hybrid apps in a fraction of the time.
+        <p className="mt-3 fs-3 fw-bold text-base text-gray-500" style={{color:"teal", fontFamily:"initial"}}>
+         Create the things you wish existed.
         </p>
         {/* End Title */}
         <div className="mt-8 grid">
-          <button
+          {/* <button
             type="button"
             className="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
           >
@@ -274,11 +273,11 @@ const Home = () => {
               />
             </svg>
             Sign up with Google
-          </button>
+          </button> */}
         </div>
-        <div className="py-6 flex items-center text-sm text-gray-400 uppercase before:flex-[1_1_0%] before:border-t before:me-6 after:flex-[1_1_0%] after:border-t after:ms-6 dark:text-gray-500 dark:before:border-gray-600 dark:after:border-gray-600">
+        {/* <div className="py-6 flex items-center text-sm text-gray-400 uppercase before:flex-[1_1_0%] before:border-t before:me-6 after:flex-[1_1_0%] after:border-t after:ms-6 dark:text-gray-500 dark:before:border-gray-600 dark:after:border-gray-600">
           Or
-        </div>
+        </div> */}
         {/* Form */}
 
         <form onSubmit={signupForm.handleSubmit}>
@@ -349,6 +348,7 @@ const Home = () => {
           <div className="grid">
             <button
               type="submit"
+              disabled={signupForm.isSubmitting}
               className="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
             >
               Sign up

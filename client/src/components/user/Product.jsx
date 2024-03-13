@@ -40,7 +40,7 @@ const Product = () => {
                             <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
                                 <svg className="flex-shrink-0 size-6  text-gray-400" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
                             </div>
-                            {/* <button   type="submit" className="  mt-2 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-e-md border border-transparent  text-blue fw-bold  disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Search</button> */}
+                          
                     </div>
                 </div>
                 <div className="row">
@@ -50,6 +50,7 @@ const Product = () => {
                                 <div className="col-md-3  g-3  ">
                                     <div className="card shadow-sm my-3">
                                         <img className='card-img-top img-fluid ' src={"http://localhost:5000/" + pro.image} alt="" style={{ height: 200 }} />
+                                       
                                         <div className="card-body fw-bold d-flex justify-content-between ">
                                             <h1 className='py-1'>{pro.title}</h1>
                                             <h1><i className="bi bi-currency-rupee fw-bold "></i>{pro.price}</h1>

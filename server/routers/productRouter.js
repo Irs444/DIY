@@ -69,7 +69,7 @@ router.get("/getbyid/:id",(req,res)=>{
         res.json(result);
 
     }).catch((err)=>{
-        console.err(err)
+        console.error(err)
         res.status(500).json(err);
     });
 });

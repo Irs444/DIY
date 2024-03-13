@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const InteriorDesigning = () => {
 
@@ -26,7 +26,7 @@ const displayCategoryData = () => {
   if (categoryList.length === 0) {
       return <h1>NO CATEGORY FOUND</h1>;
   } else {
-      return categoryList.map((cat) => {
+      return categoryList.map((cat) => {                                           
           return <div className="col-md-3 g-3">
               <div className="card shadow-lg my-3 h-100 ">
                   <img src={"http://localhost:5000/" + cat.image} alt="" className="card-img-top img-fluid" style={{ height: 200 }} />
@@ -54,12 +54,13 @@ const displayCategoryData = () => {
                 <div className='container'>
                     <div className='row'>
                         <div className='col-md-12'>
-                            <h1 className='text-center fw-bold fs-1 text-primary'>Interior</h1>
+                            <h1 className='text-center fw-bold fs-1' style={{color:"teal", fontFamily:"initial"}}>Interior</h1>
                         </div>
                     </div>
                 </div>
             </header>
             <div className='container mb-5 vh-100'>
+            <Link to={"/user/home"} className='btn btn-outline-warning rounded-pill px-2'><i className=" px-2 bi bi-arrow-left-circle"></i>Go Home</Link>
                 <div className="row">
                     {displayCategoryData()}
                 </div>
