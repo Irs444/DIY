@@ -1,8 +1,5 @@
 import { useState } from 'react'
 import './admin.css'
-// import Header from './admin/Header'
-// import Sidebar from './admin/Sidebar'
-// import Home from './Base'
 import { Outlet } from 'react-router-dom'
 import Header from './Header'
 import Sidebar from './Sidebar'

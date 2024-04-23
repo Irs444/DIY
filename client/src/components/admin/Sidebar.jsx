@@ -10,12 +10,12 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive": ""}>
         <div className='sidebar-title'>
             <div className='sidebar-brand' style={{fontFamily:"initial"}}>
-                <h6 className='icon_header'/> DIY
+                <h6 className='icon_header'/> 
             </div>
             <span className='icon1 close_icon' onClick={OpenSidebar}>X</span>
         </div>
 
-        <ul className='sidebar-list'>
+        <ul className='sidebar-list py-4'>
            
             <li className='sidebar-list-item'>
                 <Link to="/admin/base" style={{fontFamily:"initial"}}>

@@ -2,52 +2,28 @@ import React from 'react'
 import useProductContext from "../../context/ProductContext";
 import { Link } from 'react-router-dom';
 
+
 const Cart = () => {
 
-  //for payment
+ 
+    const {
+      cartItems,
+      addItemToCart,
+      removeItemFromCart,
+      clearCart,
+      isInCart,
+      getCartTotal,
+      getCartItemsCount,
+    } = useProductContext();
 
-  // const makePayment = async()=>{
-  //       const stripe = await loadStripe("pk_test_51BTUDGJAJfZb9HEBwDg86TN1KNprHjkfipXmEDMb0gSCassK5T3ZfxsAbcgKVmAIXF7oZ6ItlZZbXO6idTHE67IM007EwQ4uN3");
-
-  //       const body = {
-  //           products:carts
-  //       }
-  //       const headers = {
-  //           "Content-Type":"application/json"
-  //       }
-  //       const response = await fetch("http://localhost:5000/api/create-checkout-session",{
-  //           method:"POST",
-  //           headers:headers,
-  //           body:JSON.stringify(body)
-  //       });
-
-  //       const session = await response.json();
-
-  //       const result = stripe.redirectToCheckout({
-  //           sessionId:session.id
-  //       });
-
-  //       if(result.error){
-  //           console.log(result.error);
-  //       }
-  // }
+ 
 
 
-  //for payment
-  const {
-    cartItems,
-    addItemToCart,
-    removeItemFromCart,
-    clearCart,
-    isInCart,
-    getCartTotal,
-    getCartItemsCount,
-  } = useProductContext();
 
   const displayCartItems = () => {
     if (getCartItemsCount() === 0) return (
       <div className="text-center">
-        {/* <MDBCardImage src={'/cart.png'} alt="login form" className='rounded-start mt-4 w-25 text-center' /> */}
+        
         <h3>Your Cart is Currently Empty!</h3>
         <p className="text-muted">Before proceed to checkout you must add some products to your shopping cart. <br />You will fill a lot of interesting products on our "Product" page.</p>
         <Link className="btn rounded-pill my-3" style={{ backgroundColor: "#4BCCF2", color: "#fff" }} to={"/user/product"}>Return To Shop</Link>
@@ -104,7 +80,7 @@ const Cart = () => {
                     <p ><span style={{ color: "teal", fontFamily: 'initial', marginInline: "5px" }} >Total:</span>{getCartTotal()}</p>
                     <p><span style={{ color: "teal", fontFamily: 'initial', marginInline: "5px" }}>Items:</span>{getCartItemsCount()}</p>
                     <button className='btn btn-outline-danger my-2' onClick={() => clearCart()}><i className="bi bi-archive px-1"></i>Clear Cart</button>
-                    <button className="btn btn-outline-warning ms-2 "><i className="bi bi-bag px-1" ></i>Buy Now</button>
+                    <button  className="btn btn-outline-warning ms-2 "><i className="bi bi-bag px-1" ></i>Buy Now</button>
                   </div>
                 </div>
               </div>

@@ -4,6 +4,8 @@ const Kits = () => {
 
     const [videoList, setVideoList] = useState([]);
     const [masterList, setMasterList] = useState([]);
+    const[count, setCount] = useState(0);
+    
 
     const fetchVideoList = async () => {
         const res = await fetch("http://localhost:5000/product/getall");
@@ -24,11 +26,33 @@ const Kits = () => {
 
         setVideoList(masterList.filter((equipment) => {
             return equipment.title.toLowerCase().includes(inputText.toLowerCase());
- 
+       }));
+     }
 
+       const likes = () => {
+        setCount(count+1);
+        
+       }
 
-        }));
-    }
+       const dislikes = () => {
+        setCount(count-1);
+       }
+
+       // share video
+       const shareVideo = (vid) => {
+        if (navigator.share) {
+          navigator.share({
+            title: vid.title,
+            text: vid.description,
+            url: "http://localhost:5000/" + vid.video,
+          })
+          .then(() => console.log('Successful share'))
+          .catch((error) => console.log('Error sharing', error));
+        } else {
+          // fallback for browsers that do not support navigator.share
+          alert("Your browser does not support the Web Share API");
+        }
+      }
 
     return (
         <div>
@@ -48,7 +72,7 @@ const Kits = () => {
                             return (<div className="col-md-4 text-center">
 
                                 <div className="card ">
-                                    <video autoPlay controls className='card-img-top img-fluid ' src={"http://localhost:5000/" + vid.video} alt="" style={{ height: 200 }} />
+                                    <video  controls className='card-img-top img-fluid ' src={"http://localhost:5000/" + vid.video} alt="" style={{ height: 200 }} />
                                     <div className="card-body">
 
                                         <h1 className="py-1 d-flex justify-content-start fw-bold " style={{ color: "teal", fontFamily: "initial" }}>{vid.description}</h1>
@@ -61,9 +85,9 @@ const Kits = () => {
                                                 <button className='btn btn-outline-dark  rounded-pill' style={{ fontFamily: "initial" }}>Subscribe</button>
                                             </div>
                                             <div>
-                                                <button className='btn btn-light rounded-pill' style={{ color: "teal", fontFamily: "initial" }}><i className="bi bi-hand-thumbs-up"></i>Likes</button>
-                                                <button className='btn btn-light rounded-pill' style={{ color: "teal", fontFamily: "initial" }}><i className="bi bi-hand-thumbs-down"></i>Dislike</button>
-                                                <button className='btn btn-light rounded-pill' style={{ color: "teal", fontFamily: "initial" }}><i className="bi bi-share"></i>Share</button>
+                                                <button onClick={likes} className='btn btn-light rounded-pill' style={{ color: "teal", fontFamily: "initial" }}><i className="bi bi-hand-thumbs-up"></i>Likes <span>{count}</span> </button>
+                                                <button onClick={dislikes} className='btn btn-light rounded-pill' style={{ color: "teal", fontFamily: "initial" }}><i className="bi bi-hand-thumbs-down"></i>Dislike </button>
+                                                <button onClick={() => shareVideo(vid)} className='btn btn-light rounded-pill' style={{ color: "teal", fontFamily: "initial" }}><i className="bi bi-share"></i>Share</button>
 
                                             </div>
                                         </div>

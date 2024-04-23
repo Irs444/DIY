@@ -26,6 +26,7 @@ import ManageUser from './components/admin/ManageUser';
 import AdminSignup from './components/user/AdminSignup';
 import AdminLogin from './components/user/AdminLogin';
 import Kits from './components/user/Kits';
+import ResetPassword from './components/user/ResetPassword';
 
 
 
@@ -50,7 +51,7 @@ const App = () => {
                 <Route path='product' element={<Product />} />
                 <Route path='cart' element={<Cart />} />
                 <Route path='kit' element={<Kits />} />
-
+                <Route path='resetpassword' element={<ResetPassword/>}/>
                 <Route path='details/:id' element={<Details />} />
                 <Route path='productbycategory/:category' element={<ProductbyCategory />} />
                 <Route path='getinterior/:category' element={<InteriorDesigning />} />

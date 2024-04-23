@@ -53,7 +53,7 @@ const ManageProduct = () => {
             productList.map( ( pod ) => {
               return <tr style={{ fontFamily: "initial" }}>
                 <td><img src={"http://localhost:5000/" + pod.image} alt="" style={{height:40}} /></td>
-                <td><video controls autoPlay src={"http://localhost:5000/" + pod.video} alt="" style={{height:40}} /></td>
+                <td><video controls  src={"http://localhost:5000/" + pod.video} alt="" style={{height:40}} /></td>
                 <td>{pod.title}</td>
                 <td>{pod.category}</td>
                 <td>{pod.description}</td>

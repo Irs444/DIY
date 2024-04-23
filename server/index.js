@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const cors = require('cors');
+
 const port = 5000;
 
 // const stripe = require("stripe")('sk_test_51N5i2kSE8ALNlcfUeImWOPJjucvuwXy38yixqmADR9BCflGnwkfVUDy2T58YI8FxXSbADNBNK5bkBI4ZSlxSyRNU00guAF4MyK');
@@ -11,6 +11,8 @@ const AdminRouter = require("./routers/adminRouter")
 const ProductRouter = require("./routers/productRouter")
 const UtilRouter = require("./routers/util")
 
+
+const cors = require('cors');
 
 
 app.use(express.json());
@@ -38,7 +40,7 @@ app.use(express.static('./static/uploads'));
 //                 name: product.name,
 //                 // images: [product.image],
 //             },
-//             unit_amount: product.pricingPlan * 100
+//             unit_amount: product.price * 100
 //         },
 //         quantity: 1
 //     }))
@@ -49,8 +51,8 @@ app.use(express.static('./static/uploads'));
 //         payment_method_types: ["card"],
 //         line_items: lineItems,
 //         mode: "payment",
-//         // success_url: http://localhost:5173/thankyou,
-//         // cancel_url: http://localhost:5173/browse,
+//         success_url: 'http://localhost:5173/thankyou',
+//         cancel_url: 'http://localhost:5173/browse',
 //     })
 //     res.json({id: session.id})
 // })
