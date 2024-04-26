@@ -5,8 +5,10 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
 
-    const currentuser = JSON.parse(sessionStorage.getItem('user'));
+    const [currentuser,setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+
     const [loggedIn, setLoggedIn] = useState(currentuser !== null);
+
     const navigate = useNavigate();
 
     const logout = () => {
@@ -17,7 +19,7 @@ export const UserProvider = ({ children }) => {
     
     return (
         <UserContext.Provider value={{
-            loggedIn, setLoggedIn, logout
+            loggedIn, setLoggedIn, logout, currentuser, setCurrentUser
         }}>
             {children}
         </UserContext.Provider>

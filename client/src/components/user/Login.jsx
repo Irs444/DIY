@@ -19,7 +19,7 @@ const Login = () => {
 
   //For logout
    
-  const {setLoggedIn} = useUserContext();
+  const {setLoggedIn, setCurrentUser} = useUserContext();
 
   //for logout
 
@@ -49,12 +49,13 @@ const Login = () => {
       if (res.status === 200) {
         enqueueSnackbar('Loggedin Successfully', { variant: 'success' });
         setLoggedIn(true);
-        navigate('/user/product');
-
+        
         const data = await res.json();
         console.log(data);
+        setCurrentUser(data);
         //to uave user data  in session ,inbuilt api- sessionstorage
         sessionStorage.setItem('user', JSON.stringify(data));
+        navigate('/user/product');
 
       } else if (res.status === 401) {
         enqueueSnackbar('Email or Password is incorrect', { variant: 'error' });
