@@ -29,6 +29,7 @@ import Kits from './components/user/Kits';
 import ResetPassword from './components/user/ResetPassword';
 import Checkout from './components/Checkout/Checkout';
 import ThankYou from './components/user/Thankyou';
+import OrderHistory from './components/user/Orders';
 
 
 
@@ -62,6 +63,7 @@ const App = () => {
                 <Route path='getdecoration/:category' element={<Decoration />} />
                 <Route path='getgift/:category' element={<GiftHamper />} />
                 <Route path='thankyou' element={<ThankYou />} />
+                <Route path='order' element={<OrderHistory />} />
               </Route>
                 
                 <Route path='checkout' element={<Checkout/>}/>

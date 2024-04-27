@@ -9,6 +9,7 @@ const AdminRouter = require("./routers/adminRouter")
 const ProductRouter = require("./routers/productRouter")
 const FeedbackRouter = require("./routers/feedbackRouter")
 const UtilRouter = require("./routers/util")
+const OrderRouter = require("./routers/orderRouter")
 
 const stripe = require("stripe")("sk_test_51N5i2kSE8ALNlcfUeImWOPJjucvuwXy38yixqmADR9BCflGnwkfVUDy2T58YI8FxXSbADNBNK5bkBI4ZSlxSyRNU00guAF4MyK")
 
@@ -24,6 +25,7 @@ app.use("/user", UserRouter);
 app.use("/admin", AdminRouter);
 app.use("/product", ProductRouter);
 app.use("/feedback", FeedbackRouter);
+app.use("/order", OrderRouter);
 app.use("/util", UtilRouter);
 
 app.use(express.static('./static/uploads'));

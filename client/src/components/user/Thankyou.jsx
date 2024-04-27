@@ -3,7 +3,7 @@ import { Button, Container } from 'react-bootstrap'; // Assuming you're using Bo
 import { IconCircleX } from '@tabler/icons-react';
 import { useSearchParams, Link } from 'react-router-dom'; // Assuming you're using react-router-dom for navigation
 // import Navbar from './Navbar';
-import  {IconCircleCheck}  from '@tabler/icons-react';
+import { IconCircleCheck } from '@tabler/icons-react';
 import useProductContext from '../../context/ProductContext';
 // import useCartContext from '../Context/CartContext';
 
@@ -15,13 +15,13 @@ const ThankYou = () => {
 
     const savePayment = async () => {
         const paymentDetails = await retrievePaymentIntent();
-        const response = await fetch('http://localhost:3000/order/add', {
+        const response = await fetch('http://localhost:5000/order/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'x-auth-token': currentUser.token
             },
             body: JSON.stringify({
+                user: currentUser._id,
                 items: cartItems,
                 details: paymentDetails,
                 intentId: params.get('payment_intent'),
